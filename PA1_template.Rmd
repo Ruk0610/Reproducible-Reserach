@@ -16,7 +16,13 @@ library(lattice)
 Activity <- read.csv("Activity Monitoring Data/activity.csv", sep = ",")
 
 summary ("Activity")
+```
 
+##    Length     Class      Mode 
+##         1 character character
+
+
+```{r}
 # 2.Process/Transfer the data (if necessary) into a format suitable analysis
 
 Activity$date <- as.Date(Activity$date)
@@ -39,6 +45,10 @@ data.frame(Mean = mean(Total_Steps_Each_Day$numStep, na.rm = TRUE), Median = med
 
 ```
 
+##      Mean Median
+## 1 9354.23  10395
+
+
 # What is the average daily activity pattern?
 
 ## 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
@@ -54,7 +64,7 @@ plot(x = Steps_Five_Minute_Interval$interval, y = Steps_Five_Minute_Interval$ste
 ## 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 
-
+### The interval r maxInter contains the maximum number of steps
 
 
 # Imputing missing values
@@ -68,6 +78,7 @@ plot(x = Steps_Five_Minute_Interval$interval, y = Steps_Five_Minute_Interval$ste
 sum(is.na(Activity$steps))
 
 ```
+## [1] 2304
 
 
 ## 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
@@ -99,6 +110,8 @@ hist(Steps.by.day1$numStep, main = "Histogram of the total number of steps taken
 data.frame(mean = mean(Steps.by.day1$numStep, na.rm = TRUE), median = median(Steps.by.day1$numStep, na.rm = TRUE))
 
 ```
+##      mean median
+## 1 9354.23  10395
 
 # Are there differences in activity patterns between weekdays and weekends?
 
@@ -131,7 +144,7 @@ steps.by.interval <- summarise(group_by(Activity.filled.NA, interval, WeekSplit)
 
 # Plot seperately weekdays and weekends
 
-xyplot(MeanStep ~ interval | WeekSplit, data = steps_by_interval2, layout = c(1,2), type = "l", main = "Average no. of steps by 5 Minute time interval", xlab = "5 Minute time interval", ylab = "Averge no. of steps")
+xyplot(MeanStep ~ interval | WeekSplit, data = steps_by_interval2, layout = c(1,2), type = "l", main = "Weekend vs Weekday Average Number of Steps", xlab = "5 min interval", ylab = "Avg Steps taken")
 
 ```
 
