@@ -144,7 +144,7 @@ steps.by.interval <- summarise(group_by(Activity.filled.NA, interval, WeekSplit)
 
 # Plot seperately weekdays and weekends
 
-xyplot(MeanStep ~ interval | WeekSplit, data = steps_by_interval2, layout = c(1,2), type = "l", main = "Weekend vs Weekday Average Number of Steps", xlab = "5 min interval", ylab = "Avg Steps taken")
+xyplot(MeanStep ~ interval | WeekSplit, data = steps_by_interval, layout = c(1,2), type = "l", main = "Weekend vs Weekday Average Number of Steps", xlab = "5 min interval", ylab = "Avg Steps taken")
 
 ```
 
