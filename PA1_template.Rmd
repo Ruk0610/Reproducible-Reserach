@@ -46,7 +46,7 @@ data.frame(Mean = mean(Total_Steps_Each_Day$numStep, na.rm = TRUE), Median = med
 ```
 
 ##      Mean Median
-## 1 9354.23  10395
+##[1]9354.23  10395
 
 
 # What is the average daily activity pattern?
@@ -110,8 +110,8 @@ hist(Steps.by.day1$numStep, main = "Histogram of the total number of steps taken
 data.frame(mean = mean(Steps.by.day1$numStep, na.rm = TRUE), median = median(Steps.by.day1$numStep, na.rm = TRUE))
 
 ```
-##      mean median
-## 1 9354.23  10395
+##       mean median
+## [1]9354.23  10395
 
 # Are there differences in activity patterns between weekdays and weekends?
 
